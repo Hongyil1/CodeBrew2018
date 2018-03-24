@@ -31,9 +31,8 @@ for i in range(len(case)):
 	else:
 		plt.plot(case[i],baseline, marker='o', c = 'yellow')
 		
-ax.set_xlabel('Disease Rate')
-ax.set_ylabel('Baseline')
-ax.
+plt.set_xlabel('Disease Rate')
+plt.set_ylabel('Baseline')
 
 plt.axis([0,10.1,0,1])
 plt.show(block=True)
