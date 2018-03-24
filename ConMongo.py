@@ -21,11 +21,14 @@ dates = "2003-02-23"
 #date is date to update for, number is amount to increment by. can decrement by using -ve values
 def incrementCaseNo(date, number):
 	return (collection.find_one_and_update({'Date': date}, {'$inc': {'CaseNo': number}}))
+
 def retrieveMostRecent(noRecords):
 	return(collection.find(limit = noRecords).sort('Date', -1))#, sort = {'Date', -1}))#.limit(noRecords).sort('Date',-1))
 
-def printMostRecent():
-	for doc in retrieveMostRecent(10):
-		print(doc)
-printMostRecent()
-#def insertin(date, nocases):
+def printMostRecent(noRecords):
+	last10 = []
+	for doc in retrieveMostRecent(noRecords):
+		last10.append(doc)
+		#print(doc)
+	return last10
+print (printMostRecent(10))
